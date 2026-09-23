@@ -1,27 +1,33 @@
 <?php get_header(); ?>
 
-<main>
+<main class="content-wrapper">
 
-    <?php if (have_posts()): ?>
+    <section class="posts-list">
+        <?php if (have_posts()): ?>
 
-        <?php while (have_posts()):
-            the_post(); ?>
+            <?php while (have_posts()):
+                the_post(); ?>
 
-            <article>
-                <h2>
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                    </a>
-                </h2>
-            </article>
+                <article>
+                    <h2>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                        </a>
+                    </h2>
+                </article>
 
-        <?php endwhile; ?>
+            <?php endwhile; ?>
 
-    <?php else: ?>
+        <?php else: ?>
 
-        <p>Geen posts gevonden.</p>
+            <p>Geen posts gevonden.</p>
 
-    <?php endif; ?>
+        <?php endif; ?>
+    </section>
+
+    <aside class="content-image">
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/DG.png' ); ?>" alt="">
+    </aside>
 
 </main>
 

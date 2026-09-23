@@ -6,8 +6,14 @@
 
         <?php while (have_posts()) : the_post(); ?>
 
-            <article>               
+            <article>
                 <h2><?php the_title(); ?></h2>
+
+                <?php if ( has_post_thumbnail() ) : ?>
+                    <div class="post-thumbnail">
+                        <?php the_post_thumbnail( 'large' ); ?>
+                    </div>
+                <?php endif; ?>
 
                 <p><?php the_content(); ?></p>
             </article>
