@@ -3,6 +3,13 @@
 <main class="content-wrapper">
 
     <section class="posts-list">
+        <?php echo do_shortcode('[dg_random_track]'); ?>
+
+        <p>
+            <a class="dg-btn dg-btn-ghost" href="<?php echo esc_url(home_url('/quiz/')); ?>">
+                Which album are you?
+            </a>
+        </p>
         <?php if (have_posts()): ?>
 
             <?php while (have_posts()):
@@ -26,7 +33,7 @@
     </section>
 
     <aside class="content-image">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/images/DG.png' ); ?>" alt="">
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/DG.png'); ?>" alt="">
     </aside>
 
 </main>

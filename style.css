@@ -1,26 +1,47 @@
-/* Theme Name: Death Grips */
+/*
+Theme Name: Death Grips
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
     --dg-black: #0a0a0a;
-    --dg-red: #ff1100;
-    --dg-white: #f2f2f2;
+    --dg-green: #39ff14;
+    --dg-green-dark: #0b7a1f;
+    --dg-white: #d6d6d6;
     --dg-grey: #4a4a4a;
-    --dg-glitch: #00ffe0;
+    --dg-grey-light: #8c8c8c;
+    --dg-glitch: #00ff9c;
+
+    --dg-font-display: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
+    --dg-font-body: 'Space Mono', 'Courier New', monospace;
+}
+
+[hidden] {
+    display: none !important;
 }
 
 body {
     background-color: var(--dg-black);
     color: var(--dg-white);
-    font-family: 'Arial Narrow', 'Helvetica Neue', sans-serif;
+    font-family: var(--dg-font-body);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0;
     /* subtle noise texture */
     background-image:
         repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, transparent 1px, transparent 2px),
         repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, transparent 1px, transparent 2px);
 }
+
+h1, h2, h3, h4 {
+    font-family: var(--dg-font-display);
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    line-height: 1.1;
+}
+
 /* ===== Index ===== */
 .content-wrapper {
     display: flex;
@@ -45,7 +66,7 @@ body {
 /* ===== Header ===== */
 header {
     background: var(--dg-black);
-    border-bottom: 4px solid var(--dg-red);
+    border-bottom: 4px solid var(--dg-green);
     padding: 1.5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -55,7 +76,7 @@ header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: var(--dg-red);
+    background: var(--dg-green);
     mix-blend-mode: difference;
     opacity: 0;
     animation: glitch-flash 6s infinite;
@@ -70,12 +91,14 @@ header::before {
 
 .site-title,
 header h1 {
-    font-weight: 900;
-    font-size: 2.5rem;
+    font-family: var(--dg-font-display);
+    font-weight: 400;
+    font-size: 3rem;
+    letter-spacing: 3px;
     color: var(--dg-white);
     text-shadow:
-        2px 0 var(--dg-red),
-        -2px 0 var(--dg-glitch);
+        2px 0 var(--dg-green),
+        -2px 0 var(--dg-green-dark);
     margin: 0;
 }
 
@@ -94,7 +117,7 @@ nav ul {
 }
 
 nav a {
-    color: var(--dg-grey);
+    color: var(--dg-grey-light);
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
@@ -102,17 +125,17 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--dg-red);
-    text-shadow: 1px 1px var(--dg-glitch);
+    color: var(--dg-green);
+    text-shadow: 1px 1px var(--dg-green-dark);
 }
 
 /* ===== Footer ===== */
 footer {
     background: var(--dg-black);
-    border-top: 4px solid var(--dg-red);
+    border-top: 4px solid var(--dg-green);
     padding: 1.5rem 2rem;
     text-align: center;
-    color: var(--dg-grey);
+    color: var(--dg-grey-light);
     font-size: 0.75rem;
     font-weight: 700;
 }
@@ -123,7 +146,7 @@ footer p {
 
 /* ===== Links & misc ===== */
 a {
-    color: var(--dg-red);
+    color: var(--dg-green);
 }
 
 a:hover {
@@ -131,6 +154,157 @@ a:hover {
 }
 
 ::selection {
-    background: var(--dg-red);
+    background: var(--dg-green);
     color: var(--dg-black);
+}
+
+:focus-visible {
+    outline: 2px solid var(--dg-glitch);
+    outline-offset: 3px;
+}
+
+/* ===== Buttons ===== */
+.dg-btn {
+    font-family: var(--dg-font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dg-green);
+    background: transparent;
+    border: 2px solid var(--dg-green);
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    transition: background 0.1s steps(2, end), color 0.1s steps(2, end);
+}
+
+.dg-btn:hover {
+    background: var(--dg-green);
+    color: var(--dg-black);
+}
+
+.dg-btn-ghost {
+    color: var(--dg-grey-light);
+    border-color: var(--dg-grey);
+}
+
+.dg-btn-ghost:hover {
+    background: var(--dg-grey);
+    color: var(--dg-white);
+}
+
+/* ===== Random track ===== */
+.dg-random {
+    margin: 1.5rem 0;
+}
+
+.dg-random-result {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 2px solid var(--dg-grey);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.dg-random-cover {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border: 2px solid var(--dg-green-dark);
+}
+
+.dg-random-track {
+    font-family: var(--dg-font-display);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: var(--dg-white);
+    margin: 0 0 0.5rem;
+    text-shadow: 1px 0 var(--dg-green-dark);
+}
+
+.dg-random-album {
+    font-size: 0.85rem;
+}
+
+/* ===== Quiz ===== */
+.dg-quiz {
+    max-width: 640px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 2px solid var(--dg-grey);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.dg-quiz-progress {
+    color: var(--dg-green);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+}
+
+.dg-quiz-question,
+.dg-quiz-result-title {
+    font-size: 2rem;
+    margin: 0 0 1.25rem;
+    color: var(--dg-white);
+    text-shadow: 2px 0 var(--dg-green-dark);
+}
+
+.dg-quiz-result-title {
+    font-size: 3rem;
+    color: var(--dg-green);
+    text-shadow: 2px 0 var(--dg-green-dark), -2px 0 var(--dg-grey);
+}
+
+.dg-quiz-result-text {
+    color: var(--dg-grey-light);
+    margin: 0 0 1.5rem;
+}
+
+.dg-quiz-answers {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.dg-quiz-answer {
+    text-align: left;
+    width: 100%;
+}
+
+.dg-quiz-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* ===== Small screens ===== */
+@media (max-width: 700px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .dg-random-result {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dg-random-cover {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .site-title,
+    header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    header::before {
+        animation: none;
+    }
 }

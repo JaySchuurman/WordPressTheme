@@ -1,11 +1,17 @@
 <?php get_header(); ?>
 
-<main>
+<main class="content-wrapper" style="display:block;">
+
     <?php while (have_posts()):
         the_post(); ?>
-        <h1><?php the_title(); ?></h1>
-        <?php the_content(); ?>
+
+        <article>
+            <h1><?php the_title(); ?></h1>
+            <?php the_content(); ?>
+        </article>
+
     <?php endwhile; ?>
+
 </main>
 
 <?php get_footer(); ?>
