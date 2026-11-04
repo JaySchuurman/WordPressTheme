@@ -89,7 +89,7 @@ add_shortcode( 'dg_random_track', function () {
 
 add_shortcode( 'dg_quiz', function () {
 	dg_enqueue_extras();
-	return '<div class="dg-quiz"></div>';
+	return '<div class="dg-quiz" aria-live="polite" aria-atomic="true"></div>';
 } );
 
 /** The JavaScript for both features. */

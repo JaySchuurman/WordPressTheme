@@ -1,8 +1,10 @@
+
 <?php get_header(); ?>
 
 <main class="content-wrapper">
 
     <section class="posts-list">
+
         <?php echo do_shortcode('[dg_random_track]'); ?>
 
         <p>
@@ -10,14 +12,14 @@
                 Which album are you?
             </a>
         </p>
+
         <?php if (have_posts()): ?>
 
-            <?php while (have_posts()):
-                the_post(); ?>
+            <?php while (have_posts()): the_post(); ?>
 
-                <article>
+                <article class="post-item">
                     <h2>
-                        <a href="<?php the_permalink(); ?>">
+                        <a href="<?php echo esc_url(get_permalink()); ?>">
                             <?php the_title(); ?>
                         </a>
                     </h2>
@@ -30,10 +32,14 @@
             <p>Geen posts gevonden.</p>
 
         <?php endif; ?>
+
     </section>
 
     <aside class="content-image">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/DG.png'); ?>" alt="">
+        <img
+            src="<?php echo esc_url(get_template_directory_uri() . '/images/DG.png'); ?>"
+            alt="Death Grips artwork"
+        >
     </aside>
 
 </main>
