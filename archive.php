@@ -21,7 +21,7 @@
 
         <?php else : ?>
 
-            <p>No messages found you fat fuck...</p>
+            <p>No messages found.</p>
 
         <?php endif; ?>
     </main>

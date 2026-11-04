@@ -1,26 +1,9 @@
 <?php
-/**
- * Death Grips extras: [dg_quiz] and [dg_random_track] shortcodes.
- *
- * Setup:
- * 1. Save this file in your theme folder as dg-extras.php
- * 2. Add to functions.php:
- *      require_once get_template_directory() . '/dg-extras.php';
- *    (use get_stylesheet_directory() if it's a child theme)
- * 3. Put [dg_quiz] on a page and [dg_random_track] wherever you want the button
- *    (or in a template: echo do_shortcode( '[dg_random_track]' );)
- */
 
-/** Post type that holds your album posts. Change with the 'dg_album_post_type' filter. */
 function dg_album_post_type() {
 	return apply_filters( 'dg_album_post_type', 'post' );
 }
 
-/**
- * Builds a flat list of tracks from your album posts.
- * Assumes each album's songs are list items (<li>) in the post content,
- * and the album cover is the featured image.
- */
 function dg_get_tracks_data() {
 	$cached = get_transient( 'dg_tracks_data' );
 	if ( false !== $cached ) {
@@ -36,7 +19,7 @@ function dg_get_tracks_data() {
 	) );
 
 	foreach ( $query->posts as $post ) {
-		$raw = $post->post_content; // Raw content on purpose: avoids re-running the_content filters.
+		$raw = $post->post_content; 
 		if ( ! preg_match_all( '/<li[^>]*>(.*?)<\/li>/is', $raw, $m ) ) {
 			continue;
 		}
@@ -82,7 +65,6 @@ function dg_enqueue_extras() {
 	wp_add_inline_script( 'dg-extras', dg_extras_js() );
 }
 
-/* ---------- [dg_random_track] ---------- */
 add_shortcode( 'dg_random_track', function () {
 	$data = dg_get_tracks_data();
 	if ( empty( $data ) ) {
@@ -105,7 +87,6 @@ add_shortcode( 'dg_random_track', function () {
 	return ob_get_clean();
 } );
 
-/* ---------- [dg_quiz] ---------- */
 add_shortcode( 'dg_quiz', function () {
 	dg_enqueue_extras();
 	return '<div class="dg-quiz"></div>';

@@ -1,10 +1,4 @@
 <?php
-/**
- * The template for displaying 404 (page not found) errors.
- *
- * Place this file in the root of your (child) theme folder.
- */
-
 get_header(); ?>
 
 <main id="primary" class="site-main error-404 not-found">
@@ -26,7 +20,6 @@ get_header(); ?>
 			</p>
 
 			<?php
-			// Show the 5 most recent posts as suggestions.
 			$recent = new WP_Query( array(
 				'posts_per_page'      => 5,
 				'ignore_sticky_posts' => true,
