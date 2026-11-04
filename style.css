@@ -66,7 +66,7 @@ h1, h2, h3, h4 {
 /* ===== Header ===== */
 header {
     background: var(--dg-black);
-    border-bottom: 4px solid var(--dg-green);
+    border-bottom: 4px solid var(--dg-white);
     padding: 1.5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -76,7 +76,7 @@ header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: var(--dg-green);
+    background: var(--dg-white);
     mix-blend-mode: difference;
     opacity: 0;
     animation: glitch-flash 6s infinite;
@@ -97,8 +97,8 @@ header h1 {
     letter-spacing: 3px;
     color: var(--dg-white);
     text-shadow:
-        2px 0 var(--dg-green),
-        -2px 0 var(--dg-green-dark);
+        2px 0 var(--dg-white),
+        -2px 0 var(--dg-grey-light);
     margin: 0;
 }
 
@@ -125,14 +125,14 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--dg-green);
-    text-shadow: 1px 1px var(--dg-green-dark);
+    color: var(--dg-white);
+    text-shadow: 1px 1px var(--dg-grey-light);
 }
 
 /* ===== Footer ===== */
 footer {
     background: var(--dg-black);
-    border-top: 4px solid var(--dg-green);
+    border-top: 4px solid var(--dg-white);
     padding: 1.5rem 2rem;
     text-align: center;
     color: var(--dg-grey-light);
@@ -146,7 +146,7 @@ footer p {
 
 /* ===== Links & misc ===== */
 a {
-    color: var(--dg-green);
+    color: var(--dg-white);
 }
 
 a:hover {
@@ -154,7 +154,7 @@ a:hover {
 }
 
 ::selection {
-    background: var(--dg-green);
+    background: var(--dg-white);
     color: var(--dg-black);
 }
 
@@ -170,16 +170,16 @@ a:hover {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--dg-green);
+    color: var(--dg-white);
     background: transparent;
-    border: 2px solid var(--dg-green);
+    border: 2px solid var(--dg-white);
     padding: 0.7rem 1.2rem;
     cursor: pointer;
     transition: background 0.1s steps(2, end), color 0.1s steps(2, end);
 }
 
 .dg-btn:hover {
-    background: var(--dg-green);
+    background: var(--dg-white);
     color: var(--dg-black);
 }
 
@@ -213,7 +213,7 @@ a:hover {
     height: 160px;
     object-fit: cover;
     display: block;
-    border: 2px solid var(--dg-green-dark);
+    border: 2px solid var(--dg-white);
 }
 
 .dg-random-track {
@@ -222,7 +222,7 @@ a:hover {
     letter-spacing: 1px;
     color: var(--dg-white);
     margin: 0 0 0.5rem;
-    text-shadow: 1px 0 var(--dg-green-dark);
+    text-shadow: 1px 0 var(--dg-white);
 }
 
 .dg-random-album {
